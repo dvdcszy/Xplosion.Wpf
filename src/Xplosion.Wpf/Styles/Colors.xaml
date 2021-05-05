@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Xplosion.Wpf">
+    
+    <Color x:Key="PolyesterDarkerBlue">#13294B</Color>
+    <SolidColorBrush x:Key="PolyesterDarkerBlueBrush" Color="{StaticResource PolyesterDarkerBlue}"/>
+
+    <Color x:Key="PolyesterLightBlue">#265396</Color>
+    <SolidColorBrush x:Key="PolyesterLightBlueBrush" Color="{StaticResource PolyesterLightBlue}"/>
+
+    <Color x:Key="PolyesterBlue">#1E3F63</Color>
+    <SolidColorBrush x:Key="PolyesterBlueBrush" Color="{StaticResource PolyesterBlue}"/>
+
+    <Color x:Key="PolyesterBlueLight">#CFDEF3</Color>
+    <SolidColorBrush x:Key="PolyesterBlueLightBrush" Color="{StaticResource PolyesterBlueLight}"/>
+
+    <Color x:Key="ForegroundDark">#bdbdbd</Color>
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
+
+    <Color x:Key="NeonGreen">#00B796</Color>
+    <SolidColorBrush x:Key="NeonGreenBrush" Color="{StaticResource NeonGreen}"/>
+
+    <Color x:Key="BackgroundLightBlue">#A2D4DF</Color>
+    <SolidColorBrush x:Key="BackgroundLightBlueBrush" Color="{StaticResource BackgroundLightBlue}"/>
+
+    <Color x:Key="BackgroundLightGrey">#245091</Color>
+    <SolidColorBrush x:Key="BackgroundLightGreyBrush" Color="{StaticResource BackgroundLightGrey}"/>
+
+    <Color x:Key="LightBlue">#005C95</Color>
+    <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlue}"/>
+
+    <Color x:Key="MattWhite">#E8E7EA</Color>
+    <SolidColorBrush x:Key="MattWhiteBrush" Color="{StaticResource MattWhite}"/>
+
+    <Color x:Key="DarkPurple">#211351</Color>
+    <SolidColorBrush x:Key="DarkPurpleBrush" Color="{StaticResource DarkPurple}"/>
+
+    <Color x:Key="LightPurple">#3F124A</Color>
+    <SolidColorBrush x:Key="LightPurpleBrush" Color="{StaticResource LightPurple}"/>
+
+    <Color x:Key="DarkGreen">#12454A</Color>
+    <SolidColorBrush x:Key="DarkGreenBrush" Color="{StaticResource DarkGreen}"/>
+
+    <Color x:Key="MediumRed">#B42121</Color>
+    <SolidColorBrush x:Key="MediumRedBrush" Color="{StaticResource MediumRed}"/>
+
+    <Color x:Key="MattOrange">#FF8F6C</Color>
+    <SolidColorBrush x:Key="MattOrangeBrush" Color="{StaticResource MattOrange}"/>
+
+    <Color x:Key="MintGreen">#ABFAA9</Color>
+    <SolidColorBrush x:Key="MintGreenBrush" Color="{StaticResource MintGreen}"/>
+
+</ResourceDictionary>

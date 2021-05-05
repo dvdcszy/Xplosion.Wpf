@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Xplosion.Wpf">
+
+    <Style x:Key="BaseDgCellStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="FontFamily" Value="{StaticResource GeInspiraRegular}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
+        <Setter Property="Background"  Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource PolyesterDarkerBlueBrush}"/>
+    </Style>
+    
+    <Style TargetType="{x:Type DataGrid}" x:Key="CustomDataGrid">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ColumnWidth" Value="*"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="FontFamily" Value="{StaticResource GeInspiraRegular}"/>
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Foreground" Value="{StaticResource PolyesterBlueLightBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource DarkGreenBrush}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="Margin" Value="3"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CellStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource BaseDgCellStyle}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RowStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{StaticResource PolyesterBlueLightBrush}"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+
+
+    
+</ResourceDictionary>

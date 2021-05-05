@@ -1,0 +1,183 @@
+﻿<Window x:Class="Xplosion.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Xplosion.Wpf"
+        xmlns:core="clr-namespace:Xplosion.Wpf.Core;assembly=Xplosion.Wpf.Core"
+        mc:Ignorable="d"
+        Title="HRSG PCS Formula Explosion tool" 
+        Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={local:WindowDisplayRatioConverter}, ConverterParameter='0.9'}" 
+        Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={local:WindowDisplayRatioConverter}, ConverterParameter='0.9'}"
+        WindowStyle="None"
+        MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!--Outer border with the drop shadow margin-->
+                        <Border BorderBrush="Transparent" 
+                                BorderThickness="5">
+                            <Border.Effect>
+                                <DropShadowEffect  ShadowDepth="1" Color="Black"/>
+                            </Border.Effect>
+
+                            <!--Main window outline-->
+                            <Grid>
+                                <Border BorderThickness="2"
+                                        Panel.ZIndex="2"
+                                        CornerRadius="10"
+                                        BorderBrush="{StaticResource PolyesterDarkerBlueBrush}"/>
+                                
+                                <!--<Border BorderThickness="2"
+                                        Panel.ZIndex="2"
+                                        CornerRadius="10"
+                                        BorderBrush="{StaticResource PolyesterDarkerBlueBrush}"/>-->
+
+                                <!-- Opacity mask for corners on grid -->
+                                <Border x:Name="Container"
+                                        CornerRadius="10" 
+                                        BorderThickness="10"/>
+                                <!-- Window border and drop shadow -->
+                                <Border CornerRadius="10"
+                                    Background="{StaticResource PolyesterDarkerBlueBrush}">
+                                </Border>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+
+                                        <!--Title Bar-->
+                                        <RowDefinition Height="36" />
+
+                                        <!--Window Content-->
+                                        <RowDefinition Height="*" />
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Panel.ZIndex="1">
+
+                                        <Grid.ColumnDefinitions>
+                                            <!--Icon-->
+                                            <ColumnDefinition Width="170" />
+                                            <!--Title-->
+                                            <ColumnDefinition Width="*" />
+                                            <!--Windows Button-->
+                                            <ColumnDefinition Width="Auto" />
+
+                                        </Grid.ColumnDefinitions>
+                                        <!--Title-->
+                                        <Border Background="{StaticResource PolyesterDarkerBlueBrush}" 
+                                                CornerRadius="10 0 0 0"
+                                                Padding="2">
+                                            
+                                            <Border.Effect>
+                                                <DropShadowEffect  ShadowDepth="1" Color="Black"/>
+                                            </Border.Effect>
+                                            
+                                            <Viewbox Grid.Column="0" Margin="1">
+                                                <StackPanel>
+                                                    <TextBlock Text ="HRSG Formula Xplosion" 
+                                                               Foreground="{StaticResource NeonGreenBrush}" 
+                                                               Margin="0,0,0,-5" 
+                                                               FontFamily="{StaticResource GeInspiraBold}"
+                                                               FontSize="{StaticResource FontSizeXLarge}"/>
+                                                    <TextBlock Text="by Digital FPA" Foreground="{StaticResource ForegroundDarkBrush}" TextAlignment="Center" />
+                                                </StackPanel>
+                                            </Viewbox>
+                                        </Border>
+
+                                        <!--Window Buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" 
+                                                    Content="{StaticResource IcoFontBlockDown}"
+                                                    FontFamily="{StaticResource IcoFont}"
+                                                    Style="{StaticResource SystemIconButton}"/>
+                                            <Button Command="{Binding MaximizeCommand}" 
+                                                    Content="{StaticResource IcoFontSquare}"
+                                                    FontFamily="{StaticResource IcoFont}"
+                                                    Style="{StaticResource SystemIconButton}"/>
+                                            <Button Command="{Binding CloseCommand}" 
+                                                    Content="{StaticResource IcoFontCloseSquared}"
+                                                    FontFamily="{StaticResource IcoFont}"
+                                                    Style="{StaticResource SystemIconButton}"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!--Page Content-->
+                                    <Border Grid.Row="1" ClipToBounds="True">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="10"
+            CaptionHeight="36"
+            GlassFrameThickness="0"
+            CornerRadius="0"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="10 0 0 10"
+                Width="120"
+                Background="{StaticResource PolyesterDarkerBlueBrush}"
+                Padding="2">
+
+            <Border.Effect>
+                <DropShadowEffect  ShadowDepth="0.7" Opacity="0.5" />
+            </Border.Effect>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RadioButton Grid.Row="0"
+                             Style="{StaticResource NavigationRadioButton}"
+                             IsChecked="{Binding CurrentViewModel, Mode=OneWay, Converter={local:ValueToParameterConverter}, ConverterParameter={x:Type core:ComponentViewModel}}"
+                             Command="{Binding UpdateViewModelCommand}"
+                             CommandParameter="{x:Static core:ApplicationPage.CockPitPage}"
+                             Content="Cockpit"/>
+                <RadioButton Grid.Row="1"
+                             Style="{StaticResource NavigationRadioButton}"
+                             IsChecked="{Binding CurrentViewModel, Mode=OneWay, Converter={local:ValueToParameterConverter}, ConverterParameter={x:Type core:ComponentViewModel}}"
+                             Command="{Binding UpdateViewModelCommand}"
+                             CommandParameter="{x:Static core:ApplicationPage.ComponentPage}"
+                             Content="Components"/>
+                <!--<RadioButton Grid.Row="1"
+                             Style="{StaticResource NavigationRadioButton}"
+                             Content="Another Page"
+                             IsChecked="{Binding CurrentViewModel, Mode=OneWay, Converter={local:ValueToParameterConverter}, ConverterParameter={x:Type core:AnotherPageViewModel}}"
+                             Command="{Binding UpdateViewModelCommand}"
+                             CommandParameter="{x:Static core:ApplicationPage.AnotherPage}"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"/>-->
+            </Grid>
+        </Border>
+
+        <Border Name="ContentBorder" 
+                Grid.Column="1" 
+                CornerRadius="0 0 0 10" 
+                Padding="3"
+                Margin="2"
+                Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}},Path=ActualHeight}"
+                >
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Border>
+
+    </Grid>
+
+</Window>

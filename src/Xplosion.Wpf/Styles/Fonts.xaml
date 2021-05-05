@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Xplosion.Wpf" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <FontFamily x:Key="GeInspiraBold">pack://application:,,,/Fonts/GE Inspira Bold.ttf#GE Inspira</FontFamily>
+    <FontFamily x:Key="GeInspiraRegular">pack://application:,,,/Fonts/GE Inspira Regular.ttf#GE Inspira</FontFamily>
+    <FontFamily x:Key="IcoFont">pack://application:,,,/Fonts/icofont.ttf#IcoFont</FontFamily>
+
+    <system:Double x:Key="FontSizeSmaller">10</system:Double>
+    <system:Double x:Key="FontSizeSmall">12</system:Double>
+    <system:Double x:Key="FontSizeRegular">14</system:Double>
+    <system:Double x:Key="FontSizeLarge">16</system:Double>
+    <system:Double x:Key="FontSizeXLarge">24</system:Double>
+    <system:Double x:Key="FontSizeXXLarge">30</system:Double>
+
+    <system:String x:Key="IcoFontClock">&#xeedc;</system:String>
+    <system:String x:Key="IcoFontSpinner">&#xeffa;</system:String>
+    <system:String x:Key="IcoFontLeftArrow">&#xea5c;</system:String>
+    <system:String x:Key="IcoFontEdit">&#xef10;</system:String>
+    <system:String x:Key="IcoFontCheck">&#xec4b;</system:String>
+    <system:String x:Key="IcoFontClose">&#xec4f;</system:String>
+    <system:String x:Key="IcoFontCloseSquared">&#xeee3;</system:String>
+    <system:String x:Key="IcoFontSquare">&#xeffc;</system:String>
+    <system:String x:Key="IcoFontBlockDown">&#xea5f;</system:String>
+</ResourceDictionary>
